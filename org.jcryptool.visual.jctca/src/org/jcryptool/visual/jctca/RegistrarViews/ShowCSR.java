@@ -53,8 +53,8 @@ public class ShowCSR implements Views {
 		// GridData gd_comp = new GridData(SWT.FILL, SWT.TOP, true, true);
 		// composite.setLayoutData(gd_comp);
 
-		Group showCSRGroup = new Group(content, SWT.NONE);
-		showCSRGroup.setLayout(new GridLayout(3, false));
+		Group showCSRGroup = new Group(content, SWT.FILL);
+		showCSRGroup.setLayout(new GridLayout(2, false));
 		// set SWT.FILL auf SWT.NONE, um grp nicht vollst. auszufuellen - bild
 		// bleibt dann kleiner
 		GridData gd_grp = new GridData(SWT.FILL, SWT.FILL, true, true);
@@ -66,12 +66,15 @@ public class ShowCSR implements Views {
 		left.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		center = new Composite(showCSRGroup, SWT.NONE);
 		center.setLayout(new GridLayout(2, false));
-		center.setLayoutData(new GridData(SWT.FILL, SWT.NONE, true, false));
+		//GridData gd = new GridData(SWT.FILL, SWT.NONE, true, false);
+		GridData gd = new GridData(SWT.FILL, SWT.FILL, true, true);
+		gd.widthHint = 500;
+		center.setLayoutData(gd);
 		
 		
 		lst_csr = new List(left, SWT.BORDER);
-		GridData lst_ld = new GridData(SWT.FILL, SWT.NONE, true, true);
-		lst_ld.minimumWidth = 60; // damit unter Linux die Liste auch korrekt
+		GridData lst_ld = new GridData(SWT.FILL, SWT.FILL, true, false);
+		lst_ld.minimumWidth = 300; // damit unter Linux die Liste auch korrekt
 									// angezeigt wird
 		lst_csr.setLayoutData(lst_ld);
 

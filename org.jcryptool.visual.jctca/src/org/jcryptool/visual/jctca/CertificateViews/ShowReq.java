@@ -57,7 +57,6 @@ public class ShowReq implements Views {
 		composite.setLayout(new GridLayout(2, false));
 		GridData gd_comp = new GridData(SWT.FILL, SWT.FILL, true, true);
 		composite.setLayoutData(gd_comp);
-
 		// left = composite for tree
 		left = new Composite(composite, SWT.NONE);
 		left.setLayout(new GridLayout(1, true));
@@ -66,11 +65,11 @@ public class ShowReq implements Views {
 		// showSelectedRequest = group for list of root certificates and two
 		// buttons (accept and reject)
 		Composite right = new Composite(composite, SWT.NONE);
-		right.setLayout(new GridLayout(2, true));
+		right.setLayout(new GridLayout(2, false));
 		GridData gd_grp = new GridData(SWT.FILL, SWT.FILL, true, true);
 		gd_grp.widthHint = 500;
 		right.setLayoutData(gd_grp);
-
+		
 		Tree tree = new Tree(left, SWT.BORDER);
 		GridData gd_tree= new GridData(SWT.FILL, SWT.FILL, true, false);
 		gd_tree.widthHint = 300;

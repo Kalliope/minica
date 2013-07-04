@@ -45,13 +45,14 @@ Label selected_file;
 
 	}
 	
-	public RadioButtonListener(boolean enabled, Button btn1, Button btn2, Button btn3, Label selected_file) {
+	public RadioButtonListener(boolean enabled, Button btn1, Button btn2, Button btn3, Label selected_file, Text txt_text) {
 		this.enabled = enabled;
 		this.select = select;
 		this.btn1 = btn1;
 		this.btn2 = btn2;
 		this.btn3= btn3;
 		this.selected_file = selected_file;
+		this.txt_text = txt_text;
 	}
 	
 	@Override
@@ -76,8 +77,15 @@ Label selected_file;
 			btn1.setEnabled(enabled);
 			btn2.setEnabled(enabled);
 			selected_file.setEnabled(enabled);
+			//none of the two radio buttons are selected
+			if(!(btn1.getSelection()||btn2.getSelection())){
+				btn2.setSelection(enabled);
+				txt_text.setEnabled(enabled);
+				txt_text.setForeground(black);
+			}
 			if(enabled==false) {
 				btn3.setEnabled(enabled);
+				txt_text.setForeground(dark_gray);
 			}
 		}
 	}

@@ -122,8 +122,8 @@ public class SignCert implements Views {
 		
 		btn_select_file.addSelectionListener(new SelectFileListener(selected_file, txt_sign ));
 		
-		btn_non_detail.addSelectionListener(new RadioButtonListener(true, btn_radio_signFile, btn_radio_signText, btn_select_file, selected_file));
-		btn_detail.addSelectionListener(new RadioButtonListener(false, btn_radio_signFile, btn_radio_signText, btn_select_file,selected_file));
+		btn_non_detail.addSelectionListener(new RadioButtonListener(true, btn_radio_signFile, btn_radio_signText, btn_select_file, selected_file, txt_sign));
+		btn_detail.addSelectionListener(new RadioButtonListener(false, btn_radio_signFile, btn_radio_signText, btn_select_file,selected_file, txt_sign));
 
 				
 		cmb_priv_key = new Combo(signCertGroup, SWT.DROP_DOWN);

@@ -69,7 +69,7 @@ public class Util {
 		PrivateKey priv;
 		try {
 			priv = mng.getPrivateKey(csr.getPrivAlias(),
-					"1234".toCharArray());
+					"1234".toCharArray()); //$NON-NLS-1$
 			return Util.certificateForKeyPair(
 					csr.getFirst() + " " + csr.getLast(), csr.getCountry(),//$NON-NLS-1$
 					csr.getStreet(),csr.getZip(), csr.getTown(), "", "", csr.getMail(), pub,//$NON-NLS-1$ //$NON-NLS-2$
@@ -311,14 +311,14 @@ public class Util {
 	
 	public static String formatHash(String hash){
 		char[] help = hash.toCharArray();
-		String formatted = "";
+		String formatted = ""; //$NON-NLS-1$
 		int i=0;
 		for(char c : help){
 			if((c>='0'&&c<='9')||(c>='A'&&c<='Z')||(c>='a'&&c<='z')){
 				formatted +=c;
 				i++;
 				if(i%2==0){
-					formatted+="-";
+					formatted+="-"; //$NON-NLS-1$
 				}
 			}
 		}

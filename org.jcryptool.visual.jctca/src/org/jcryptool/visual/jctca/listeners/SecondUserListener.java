@@ -105,7 +105,7 @@ public class SecondUserListener implements SelectionListener{
 						if(cert.getNotAfter().after(sig.getTime())){//signature after valid date of the certificate?
 							PublicKey pk = cert.getPublicKey();
 							checkSig.initVerify(pk);
-							if(!sig.getPath().equals("")){
+							if(!sig.getPath().equals("")){ //$NON-NLS-1$
 								FileInputStream file;
 								try {
 									file = new FileInputStream(sig.getPath());

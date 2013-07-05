@@ -83,7 +83,7 @@ public class SigVisPluginOpenListener implements SelectionListener {
 			try {
 //				hash = org.jcryptool.visual.sig.algorithm.Hash.hashInput(
 //						"SHA-256", hash); //$NON-NLS-1$
-				org.jcryptool.visual.sig.algorithm.Input.chosenHash = "SHA256";
+				org.jcryptool.visual.sig.algorithm.Input.chosenHash = "SHA256"; //$NON-NLS-1$
 				org.jcryptool.visual.sig.algorithm.SigGeneration.SignInput(
 						"SHA256withRSA", Input.data); //$NON-NLS-1$
 			} catch (Exception e1) {

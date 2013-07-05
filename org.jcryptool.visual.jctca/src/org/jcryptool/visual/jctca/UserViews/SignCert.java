@@ -77,7 +77,7 @@ public class SignCert implements Views {
 		cmp_minimi.setLayout(new GridLayout(2, false));
 		
 		Label filler = new Label(cmp_minimi, SWT.None);
-		filler.setText("");
+		filler.setText(""); //$NON-NLS-1$
 		GridData gd = new GridData();
 		gd.widthHint=7;
 		filler.setLayoutData(gd);

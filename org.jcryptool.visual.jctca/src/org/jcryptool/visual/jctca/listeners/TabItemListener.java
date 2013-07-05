@@ -72,7 +72,7 @@ public class TabItemListener implements SelectionListener {
 			ArrayList<CSR> csrs = RegistrarCSR.getInstance().getCSR();
 			for (int i = 0; csrs != null && i < csrs.size(); i++) {
 				//CSR csr = csrs.get(i);
-				lst_csr.add("CSR #" + (i + 1) + " " + csrs.get(i).getCreated().toString());//$NON-NLS-1$
+				lst_csr.add("CSR #" + (i + 1) + " " + csrs.get(i).getCreated().toString());//$NON-NLS-1$ //$NON-NLS-2$
 			}
 			c.layout();
 			lst_csr.select(0);
@@ -120,12 +120,12 @@ public class TabItemListener implements SelectionListener {
 				if(sig.getPath()==null || sig.getPath().equals("")){ //$NON-NLS-1$
 					it = new TreeItem(textSig, SWT.NONE);
 					String text = sig.getText();
-					it.setText(sig.getPubAlias().getContactName() + " " + sig.getTime().toString());
+					it.setText(sig.getPubAlias().getContactName() + " " + sig.getTime().toString()); //$NON-NLS-1$
 				}
 				else{
 					it = new TreeItem(fileSig, SWT.NONE);
 					String path = sig.getPath();
-					it.setText(sig.getPubAlias().getContactName() + " " + sig.getTime().toString());
+					it.setText(sig.getPubAlias().getContactName() + " " + sig.getTime().toString()); //$NON-NLS-1$
 				}
 				it.setData(sig);
 			}

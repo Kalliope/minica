@@ -88,7 +88,7 @@ public class Signature {
 	 */
 	public String getPath() {
 		if(path == null){
-			return "";
+			return ""; //$NON-NLS-1$
 		}
 		return path;
 	}

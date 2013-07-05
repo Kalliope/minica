@@ -132,7 +132,7 @@ public class JCTCA_Visual extends ViewPart {
 				1, 1));
 		// set path_to_create_img and load image at that path into help
 		String path_to_create_img = Platform.getNL().substring(0,2);
-		if(Platform.getNL().substring(0,2).equals("de")){
+		if(Platform.getNL().substring(0,2).equals("de")){ //$NON-NLS-1$
 			path_to_create_img = "icons/de/minica_create.png"; //$NON-NLS-1$
 		}
 		else{

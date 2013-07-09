@@ -10,8 +10,11 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IViewReference;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.Workbench;
 import org.jcryptool.core.logging.utils.LogUtil;
 import org.jcryptool.crypto.keystore.backend.KeyStoreAlias;
 import org.jcryptool.crypto.keystore.backend.KeyStoreManager;
@@ -68,15 +71,18 @@ public class SigVisPluginOpenListener implements SelectionListener {
 			org.jcryptool.visual.sig.listener.SignatureListenerAdder.addSignatureListener(new SignatureNotifier());
 		}
 		if (btn_check.getSelection() == true) {
-			try {
-				
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-						.getActivePage()
-						.showView("org.jcryptool.visual.sig.view"); //$NON-NLS-1$
-
-			} catch (PartInitException e1) {
-				LogUtil.logError(e1);
-			}
+			IWorkbenchPage page = Workbench.getInstance().getActiveWorkbenchWindow().getActivePage();
+			IViewReference ref = page.findViewReference("org.jcryptool.visual.sig.view"); 
+			if (ref != null){
+				//@simon: das Plugin heißt Signature Demonstration in eng.
+				Util.showMessageBox("Signaturerzeugung schließen", "Sie müssen zuerst die Signaturerzeugung schließen bevor sie fortfahren können.",SWT.ICON_INFORMATION);
+			} else {
+				try {	
+					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().showView("org.jcryptool.visual.sig.view"); //$NON-NLS-1$
+				} catch (PartInitException e1) {
+					LogUtil.logError(e1);
+				}
+			}			
 		} else {
 
 //			hash = org.jcryptool.visual.sig.algorithm.Input.data;
